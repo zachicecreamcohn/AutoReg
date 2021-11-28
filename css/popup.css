@@ -1,0 +1,60 @@
+body {
+    width: 400px;
+    /* height: 400px; */
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.lightGrey {
+    background-color: rgb(238, 238, 238);
+}
+
+.white {
+    background-color: white;
+    padding: 10px
+}
+
+.redWUSTL {
+    color: rgb(165, 20, 23)
+}
+
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wustlLogo {
+    width: 8%;
+    height: 8%;
+    margin-left: 10px;
+    padding-top: 15px;
+
+}
+
+#titleText {
+    font-weight: 300;
+}
+
+:root {
+    --success-display: block;
+    --error-display: block;
+    --waiting-display: block;
+}
+.success {
+    display: var(--success-display);
+}
+
+
+.page_error {
+    display: var(--error-display);
+}
+
+.waiting_to_open {
+    display: var(--waiting-display);
+}
+
+
+p {
+    font-size: 15px;
+}

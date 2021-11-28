@@ -1,0 +1,32 @@
+{
+    "name": "WUSTL AutoReg",
+    "description": "AutoReg Extension for WashU WebSTAC",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "icons": {
+        "16": "./images/logo.png",
+        "32": "./images/logo.png",
+        "48": "./images/logo.png",
+        "128": "./images/logo.png"
+    },
+    "background": {
+        "scripts": [
+            "./js/background.js"
+        ]
+    },
+    "options_page": "./options.html",
+    "browser_action": {
+        "default_popup": "./popup.html"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*",
+        "storage"
+    ]
+
+
+
+}
