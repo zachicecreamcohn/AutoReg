@@ -2,7 +2,7 @@
 var reg_url = "https://acadinfo.wustl.edu/WSHome/Generic.aspx?Type=Registration&Page=/apps/Registration/"
 var reg_url_2 = "https://acadinfo.wustl.edu/WSHome/Generic.aspx?Type=Registration&Page=%2fapps%2fRegistration%2f"
 var reg_url_3 = "https://acadinfo.wustl.edu/WSHome/Generic.aspx?MenuID=67&Page=/apps/Registration/"
-var reg_url_4 = "https://talkbabytome.herokuapp.com/home"
+var reg_url_4 = "https://acadinfo.wustl.edu/WSHome/Generic.aspx?Type=Registration&Page=/apps/Registration/"
 // var target_url = "https://www.saucedemo.com/inventory.html"
 
 var continue_to_run = true;
@@ -32,12 +32,18 @@ var continue_to_run = true;
 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log(request.reload);
-    if (request.reload == "true") {
-        console.log("background.js received message from foreground.js");
-        // reload the page
-        chrome.tabs.reload();
-    } else if (request.continue == "false") {
+    console.log(request.reg_open);
+    if (request.reg_open == "true") {
+        console.log("reg_open is true");
+        continue_to_run = false;
+    } else if (request.reg_open == "false") {
+        console.log("reg_open is false");
+        continue_to_run = true;
+        // reload page
+        chrome.tabs.reload(current_tab_info.id);
+    
+    }
+    if (request.continue == "false") {
         console.log("background.js received STOP message from foreground.js");
         // stop running script on the page
         alert("RSW1 Classes Have Been Added! Restart your browser to use the extension again.")

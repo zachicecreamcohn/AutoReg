@@ -24,14 +24,19 @@ if (firstTabButton == null || firstTabButton == undefined){
     console.log("First Tab Link Button not found");
     // registration is closed
     console.log("Registration is closed");
-    // chrome.runtime.sendMessage({
-    //     "reload": "true"
-    // });
+    iframeDoc.querySelector('#ctl00_Body_lblNoAccessMsg').innerHTML = '<h1>AutoReg ACTIVE</h1>';
+    
+    chrome.runtime.sendMessage({
+        "reg_open": "false"
+    });
 } else {
     console.log("First Tab Link Button Found");
     // registraion is open
-   // send message to background.js to reload the page
+    
 
+    chrome.runtime.sendMessage({
+        "reg_open": "true"
+    });
 // get the dropdown if class full select
 var dropdown = iframeDoc.getElementById("ctl00_Body_ddlFullCourseOption");
 // select "Waitlist Me from dropdown to prevent additional messages/steps if a class is full"
