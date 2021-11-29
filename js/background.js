@@ -42,7 +42,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         
         
         // reload page
-        // chrome.tabs.reload(current_tab_info.id);
+        chrome.tabs.reload(current_tab_info.id);
     
     }
     var times_continue_to_run_is_false = 0;
