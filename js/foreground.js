@@ -24,8 +24,12 @@ if (firstTabButton == null || firstTabButton == undefined){
     console.log("First Tab Link Button not found");
     // registration is closed
     console.log("Registration is closed");
-    iframeDoc.querySelector('#ctl00_Body_lblNoAccessMsg').innerHTML = '<h1>AutoReg ACTIVE</h1>';
     
+    if (iframeDoc.querySelector('#ct100_Body_lblNoAccessMsg')) {
+        iframeDoc.querySelector('#ctl00_Body_lblNoAccessMsg').innerHTML = '<h1>AutoReg ACTIVE</h1>';
+    }
+
+
     chrome.runtime.sendMessage({
         "reg_open": "false"
     });

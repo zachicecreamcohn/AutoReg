@@ -39,14 +39,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     } else if (request.reg_open == "false") {
         console.log("reg_open is false");
         continue_to_run = true;
+        
+        
         // reload page
-        chrome.tabs.reload(current_tab_info.id);
+        // chrome.tabs.reload(current_tab_info.id);
     
     }
+    var times_continue_to_run_is_false = 0;
     if (request.continue == "false") {
         console.log("background.js received STOP message from foreground.js");
         // stop running script on the page
-        alert("RSW1 Classes Have Been Added! Restart your browser to use the extension again.")
+        times_continue_to_run_is_false++;
+        if (times_continue_to_run_is_false == 1) {
+            alert("RSW1 Classes Have Been Added! Restart your browser to use the extension again.")
+        }
         continue_to_run = false;
     }
     if (request.reg_page == "true") {
@@ -55,6 +61,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         console.log("is NOT reg page")
         continue_to_run = false;
     }
+
+
 });
    
 
